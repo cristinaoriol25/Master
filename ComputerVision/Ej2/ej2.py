@@ -49,6 +49,8 @@ def onclick1(X, Y):
     punto=[p2[i]/p2[2] for i in range(2)]
     print("Nuevo: ", punto[0], punto[1])
     plt.figure(2)
+    image2 = plt.imread("image2_distorted.png")
+    plt.imshow(image2)
     plt.scatter(punto[0], punto[1], marker="X", color="red", s=100)
     plt.show()
 
@@ -76,12 +78,12 @@ def main():
     H1, H2=C1.homography(K, c1, c2)
     print("Homography: \n",H2)
     plt.figure(1)
-    image1 = plt.imread("image1_undistorted.png")
+    image1 = plt.imread("image1_distorted.png")
     plt.imshow(image1)
     #cid = fig.canvas.mpl_connect('button_press_event', onclick1)
     #coord_clicked_point = plt.ginput(1, show_clicks=False) 
     plt.figure(2)
-    image2 = plt.imread("image2_undistorted.png")
+    image2 = plt.imread("image2_distorted.png")
     plt.imshow(image2)
     while(True):
         plt.figure(1)
