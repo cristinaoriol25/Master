@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 class Camera:
     def __init__(self, r, t):
@@ -142,11 +143,12 @@ def main():
     print('The equation is {0}x + {1}y + {2}z = {3}'.format(V[3][0], V[3][1], V[3][2], V[3][3]))
 
 
-    dA=V[3][0]*AP[0]+V[3][1]*AP[1]+V[3][2]*AP[2]+V[3][3]
-    dB=V[3][0]*B[0]+V[3][1]*B[1]+V[3][2]*B[2]+V[3][3]
-    dC=V[3][0]*C[0]+V[3][1]*C[1]+V[3][2]*C[2]+V[3][3]
-    dD=V[3][0]*D[0]+V[3][1]*D[1]+V[3][2]*D[2]+V[3][3]
-    print(dA, dB, dC, dD)
+    dA=(V[3][0]*AP[0]+V[3][1]*AP[1]+V[3][2]*AP[2]+V[3][3])/math.sqrt(V[3][0]*V[3][0]+V[3][1]*V[3][1]+V[3][2]*V[3][2])
+    dB=(V[3][0]*B[0]+V[3][1]*B[1]+V[3][2]*B[2]+V[3][3])/math.sqrt(V[3][0]*V[3][0]+V[3][1]*V[3][1]+V[3][2]*V[3][2])
+    dC=(V[3][0]*C[0]+V[3][1]*C[1]+V[3][2]*C[2]+V[3][3])/math.sqrt(V[3][0]*V[3][0]+V[3][1]*V[3][1]+V[3][2]*V[3][2])
+    dD=(V[3][0]*D[0]+V[3][1]*D[1]+V[3][2]*D[2]+V[3][3])/math.sqrt(V[3][0]*V[3][0]+V[3][1]*V[3][1]+V[3][2]*V[3][2])
+    dE=(V[3][0]*E[0]+V[3][1]*E[1]+V[3][2]*E[2]+V[3][3])/math.sqrt(V[3][0]*V[3][0]+V[3][1]*V[3][1]+V[3][2]*V[3][2])
+    print("Distancia A",dA,"Distancia B", dB,"Distancia C", dC,"Distancia D", dD,"Distancia E", dE)
 
 
 
